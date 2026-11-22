@@ -3,14 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Renovare | Giving computers a second life</title>
-  <meta name="description" content="Renovare refurbishes donated laptops and computers and passes them to people who have less access to technology.">
+  <title>Renovare | Old laptops in, working laptops out</title>
+  <meta name="description" content="Renovare refurbishes donated laptops and computers in Cambridge and passes them to people who have less access to technology.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header class="site">
   <div class="wrap">
-    <a href="index.html" class="logo">Reno<span>vare</span></a>
+    <a href="index.html" class="logo"><i></i>Renovare</a>
     <nav>
       <ul>
         <li><a href="index.html" aria-current="page">Home</a></li>
@@ -23,76 +26,49 @@
 </header>
 
 <main>
-  <div class="wrap hero">
-    <div class="hero-grid">
-      <div>
-        <p class="eyebrow">Refurbished technology, volunteer-run</p>
-        <h1>Giving computers a second life.</h1>
-        <p class="lead">We take old or broken laptops and computers, bring them back to working order, and pass them to people who have less access to technology than most of us do.</p>
-        <div class="btn-row">
-          <a href="donate.html" class="btn">Donate a device</a>
-          <a href="about.html" class="btn ghost">How it works</a>
-        </div>
+  <div class="hero">
+    <div class="wrap">
+      <span class="kicker">Cambridge and surrounding area</span>
+      <h1 class="display">Old laptops in.<br>Working laptops out.</h1>
+      <p class="lead">We take laptops and computers that have stopped working, repair and upgrade them, and pass them to people who have less access to technology than most of us do.</p>
+      <div class="btn-row">
+        <a href="donate.html" class="btn">Donate a device</a>
+        <a href="about.html" class="btn line">How it works</a>
       </div>
-
-      <div class="device" aria-hidden="true">
-        <div class="device-screen">
-          <strong>Ready to go</strong>
-          <span>Wiped, tested, Linux installed, charger included</span>
-        </div>
-        <div class="device-base"></div>
-        <div class="device-meta">
-          <span>Device <b>RNV-001</b></span>
-          <span>Status <b>Refurbished</b></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="chips">
-      <span class="on">Securely wiped</span>
-      <span class="on">Tested</span>
-      <span>Free Linux</span>
-      <span>Charger included</span>
-      <span>Simple guide</span>
-      <span>Given, never sold</span>
+      <div class="rule"></div>
     </div>
   </div>
 
-  <section>
-    <div class="wrap">
-      <p class="eyebrow">How it works</p>
-      <h2>From old to ready in three steps.</h2>
-      <div class="grid" style="margin-top:40px">
-        <div class="card">
-          <p class="step-num">01</p>
-          <h3>We collect</h3>
-          <p>Working or broken laptops and computers, from households, schools and local businesses.</p>
-        </div>
-        <div class="card">
-          <p class="step-num">02</p>
-          <h3>We restore</h3>
-          <p>Every drive is securely wiped, tested and cleaned, then fitted with a free Linux system and a charger.</p>
-        </div>
-        <div class="card">
-          <p class="step-num">03</p>
-          <h3>We pass them on</h3>
-          <p>Devices go to local groups who know who needs them, with a simple guide to get started.</p>
+  <section class="film" id="film" aria-label="Refurbishment sequence">
+    <div class="stage">
+      <div class="wrap" style="height:100%;display:flex;flex-direction:column">
+        <svg class="stage-svg" id="laptop" viewBox="0 0 800 460" role="img" aria-label="Animation of a laptop being cleaned, upgraded and reassembled"></svg>
+        <div>
+          <div class="caption"><span><span class="num" id="cnum">01</span>&nbsp; <span id="ctext">Arrives</span></span><span class="muted" style="font-weight:400">Scroll</span></div>
+          <div class="progress"><i id="bar"></i></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow">The story</p>
-        <h2>Started by a teenager who wanted to help.</h2>
-        <p>Renovare is a volunteer project run by a young person in our community, with a parent taking responsibility for it. It began when he noticed how many good computers were being thrown away while local families struggled to get online for school, work and appointments.</p>
-        <p><a href="about.html"><strong>Read more about the project →</strong></a></p>
+  <section class="block">
+    <div class="wrap pad">
+      <span class="kicker">The process</span>
+      <h2 class="display">Four stages. Nothing hidden.</h2>
+      <div class="rows">
+        <div class="row"><div class="n">01</div><div><h3>Collect</h3><p>Working and broken laptops and computers from households, schools and local businesses.</p></div></div>
+        <div class="row"><div class="n">02</div><div><h3>Wipe</h3><p>Every drive is securely erased and the erasure is logged. Nobody's data is kept or opened.</p></div></div>
+        <div class="row"><div class="n">03</div><div><h3>Restore</h3><p>Cleaned, tested, upgraded where it helps, and fitted with a free Linux system and a charger.</p></div></div>
+        <div class="row"><div class="n">04</div><div><h3>Pass on</h3><p>Devices go to local groups who already know who needs them, with a simple guide to get started.</p></div></div>
       </div>
-      <div class="note">
-        <strong>Every device is wiped before it leaves us.</strong>
-        We never open or keep anyone's data. Each machine is logged, tested, and handed over with a guide and a contact for help.
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 class="display">Have something gathering dust?</h2>
+      <div class="btn-row" style="margin-top:28px">
+        <a href="donate.html" class="btn" style="background:var(--ink);color:var(--paper)">Find out how to donate</a>
       </div>
     </div>
   </section>
@@ -104,5 +80,98 @@
     <a href="contact.html">Contact</a>
   </div>
 </footer>
+
+<script>
+(function () {
+  const CAPTIONS = [
+    "Arrives", "Dust and dents", "Untested", "Stored too long", "Lid opens",
+    "Panel off", "Board exposed", "Wiping", "Wiping", "Clean",
+    "Clean", "Old drive out", "Bay empty", "Bay empty", "SSD in",
+    "Memory fitted", "Lid closes", "Reassembled", "Powers on", "Ready"
+  ];
+  const DIRT = [[120,110,9],[210,80,7],[330,140,11],[520,95,8],[640,150,10],[700,70,6],[160,250,8],[470,220,9],[610,250,7],[260,180,6],[740,220,8],[400,60,6]];
+  const svg = document.getElementById("laptop");
+  const film = document.getElementById("film");
+  const bar = document.getElementById("bar");
+  const cnum = document.getElementById("cnum");
+  const ctext = document.getElementById("ctext");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function state(i) {
+    const s = { open: 0, dirty: 1, drive: "old", ram: "old", on: false, stamp: false };
+    if (i === 3) s.dirty = 0.6;
+    if (i >= 4 && i <= 7) s.open = (i - 3) / 4;
+    if (i >= 4) s.dirty = Math.min(s.dirty, 0.6);
+    if (i >= 8) s.open = 1;
+    if (i >= 8 && i <= 10) s.dirty = (11 - i) * 0.2;
+    if (i >= 11) s.dirty = 0;
+    if (i >= 12 && i <= 13) s.drive = "none";
+    if (i >= 14) s.drive = "new";
+    if (i >= 15) s.ram = "new";
+    if (i === 16) s.open = 0.5;
+    if (i >= 17) s.open = 0;
+    if (i >= 18) s.on = true;
+    if (i === 19) s.stamp = true;
+    return s;
+  }
+
+  function draw(s) {
+    const o = Math.max(0.04, s.open);
+    const screen = s.on ? "#FFD2B8" : "#EDEDED";
+    const dirt = DIRT.map(([x, y, r]) =>
+      `<circle cx="${x}" cy="${y}" r="${r}" fill="#8C7A66" opacity="${s.dirty}"/>`).join("");
+
+    let drive = "";
+    if (s.drive === "old") drive = `<rect x="262" y="332" width="70" height="12" fill="#9A9A9A" stroke="#111" stroke-width="2"/>`;
+    if (s.drive === "none") drive = `<rect x="262" y="332" width="70" height="12" fill="none" stroke="#111" stroke-dasharray="4 4" stroke-width="2"/>`;
+    if (s.drive === "new") drive = `<rect x="262" y="332" width="70" height="12" fill="#FF5A0A" stroke="#111" stroke-width="2"/><text x="297" y="342" font-size="8" font-family="JetBrains Mono" font-weight="700" text-anchor="middle" fill="#111">SSD</text>`;
+
+    let ram = "";
+    if (s.ram === "old") ram = `<rect x="380" y="332" width="46" height="12" fill="#7A7A7A" stroke="#111" stroke-width="2"/>`;
+    if (s.ram === "new") ram = `<rect x="380" y="332" width="46" height="12" fill="#FF5A0A" stroke="#111" stroke-width="2"/><rect x="432" y="332" width="46" height="12" fill="#FF5A0A" stroke="#111" stroke-width="2"/>`;
+
+    return `
+      <rect x="120" y="318" width="560" height="36" fill="#F4F4F4" stroke="#111" stroke-width="3"/>
+      <rect x="150" y="326" width="500" height="22" fill="none" stroke="#111" stroke-width="1.5" opacity="0.35"/>
+      <g opacity="${Math.min(1, s.open * 1.4)}">${drive}${ram}</g>
+      <g transform="translate(0 318) scale(1 ${o}) translate(0 -318)">
+        <rect x="170" y="110" width="460" height="208" fill="#FFFFFF" stroke="#111" stroke-width="3"/>
+        <rect x="192" y="132" width="416" height="164" fill="${screen}" stroke="#111" stroke-width="2"/>
+        ${s.on ? `<text x="400" y="218" font-family="Anton" font-size="46" text-anchor="middle" fill="#111">RENOVARE</text>
+                  <rect x="330" y="236" width="140" height="8" fill="#FF5A0A"/>` : ""}
+        ${dirt}
+      </g>
+      ${s.stamp ? `<g transform="rotate(-6 640 160)"><rect x="560" y="120" width="150" height="56" fill="#FF5A0A" stroke="#111" stroke-width="4"/><text x="635" y="158" font-family="Anton" font-size="34" text-anchor="middle" fill="#111">READY</text></g>` : ""}
+    `;
+  }
+
+  function render(i) {
+    svg.innerHTML = draw(state(i));
+    cnum.textContent = String(i + 1).padStart(2, "0");
+    ctext.textContent = CAPTIONS[i];
+  }
+
+  if (reduce) {
+    film.style.height = "auto";
+    film.querySelector(".stage").style.height = "auto";
+    render(19);
+    bar.style.width = "100%";
+  } else {
+    let last = -1;
+    function onScroll() {
+      const r = film.getBoundingClientRect();
+      const total = film.offsetHeight - window.innerHeight;
+      const p = Math.min(1, Math.max(0, -r.top / total));
+      const i = Math.min(19, Math.floor(p * 20));
+      bar.style.width = (p * 100).toFixed(1) + "%";
+      if (i !== last) { render(i); last = i; }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    render(0);
+    onScroll();
+  }
+})();
+</script>
 </body>
 </html>

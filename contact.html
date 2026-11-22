@@ -4,13 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Renovare</title>
-  <meta name="description" content="Get in touch with Renovare about donations, collections, or support.">
+  <meta name="description" content="Contact Renovare about donations, collections or receiving devices.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header class="site">
   <div class="wrap">
-    <a href="index.html" class="logo">Reno<span>vare</span></a>
+    <a href="index.html" class="logo"><i></i>Renovare</a>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -23,30 +26,20 @@
 </header>
 
 <main>
-  <div class="wrap page-head">
-    <p class="eyebrow">Contact</p>
-    <h2>Get in touch</h2>
-    <p>Questions about donating, collections, or receiving devices? Email us and a parent or adult volunteer will reply.</p>
-  </div>
-
-  <section>
-    <div class="wrap split">
+  <section class="block">
+    <div class="wrap pad two">
       <div>
-        <p><strong>Email:</strong> <span class="placeholder">[renovare.computers@gmail.com]</span></p>
-        <p style="margin-top:12px"><strong>Phone:</strong> <span class="placeholder">[07749618689]</span></p>
-        <p style="margin-top:12px"><strong>Area covered:</strong> <span class="placeholder">[Cambridgeshire]</span></p>
-        <p style="margin-top:24px;color:var(--muted);font-size:15px">We usually reply within a few working days.</p>
+        <span class="kicker">Contact</span>
+        <h1 class="display" style="font-size:clamp(56px,9vw,120px)">Say hello</h1>
+        <p class="lead">Questions about donating, collections or receiving devices? Email us and an adult volunteer will reply.</p>
+        <p style="margin-top:34px"><strong>Email</strong><br><a href="mailto:renovare.computers@gmail.com">renovare.computers@gmail.com</a></p>
+        <p style="margin-top:20px"><strong>Area</strong><br>Cambridge and surrounding area</p>
+        <p class="muted" style="margin-top:20px">We usually reply within a few working days.</p>
       </div>
-      <form class="contact" action="mailto:[project email]" method="post" enctype="text/plain">
-        <label>Name
-          <input type="text" name="name" required>
-        </label>
-        <label>Email
-          <input type="email" name="email" required>
-        </label>
-        <label>Message
-          <textarea name="message" required></textarea>
-        </label>
+      <form class="contact" action="mailto:renovare.computers@gmail.com" method="post" enctype="text/plain">
+        <label>Name <input type="text" name="name" required></label>
+        <label>Email <input type="email" name="email" required></label>
+        <label>Message <textarea name="message" required></textarea></label>
         <button class="btn" type="submit">Send message</button>
       </form>
     </div>
@@ -56,7 +49,7 @@
 <footer class="site">
   <div class="wrap">
     <span>&copy; 2026 Renovare. A volunteer community project.</span>
-    <span><a href="contact.html">Contact</a></span>
+    <a href="contact.html">Contact</a>
   </div>
 </footer>
 </body>
