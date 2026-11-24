@@ -4,7 +4,7 @@ html{font:400 16px/1.6 "Space Mono",ui-monospace,monospace;color:var(--ink);back
 body{min-height:100vh;display:flex;flex-direction:column}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-h1,h2,h3,dt{font-family:"Archivo Black",sans-serif;font-weight:400;line-height:.92;letter-spacing:-.02em}
+h1,h2,h3,dt{font-family:"Archivo Black",sans-serif;font-weight:400;line-height:1.08;letter-spacing:-.01em}
 h1{font-size:clamp(2.8rem,6.2vw,6.5rem)}
 h2{font-size:clamp(2.4rem,6vw,5.5rem);margin-bottom:1.2rem}
 h3{font-size:1.5rem;letter-spacing:0;margin-bottom:.6rem}
@@ -75,3 +75,13 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;paddin
 footer a{color:var(--or)}
 @media (max-width:860px){.hgrid,.proc,.pair,.yn,.spec>div{grid-template-columns:1fr}.rig{position:static}.yn>div+div{border-top:3px solid var(--ink)}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* laptop */
+.lap{width:100%;height:auto;display:block;overflow:visible}
+.hero .l1{margin-bottom:.12em}
+.hero .l2{margin-top:.04em}
+.lapbtn{display:block;width:100%}
+.lapbtn:focus-visible{outline:3px solid var(--or);outline-offset:8px}
+.spin{transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.procsec .in{padding-bottom:2rem}
+.procsec .proc{padding-top:1rem}
+.stg{min-height:80vh}
