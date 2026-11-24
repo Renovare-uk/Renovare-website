@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Renovare</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+<a class="mark" href="index.html"><i></i>Renovare</a>
+<nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="donate.html">Donate</a><a href="contact.html">Contact</a></nav>
+</header>
+<main>
+<section class="hero"><div class="in hgrid">
+<h1><span class="l1">Old laptops in.</span><span class="l2">Working laptops out.</span></h1>
+<div>
+<button class="drive" id="d1" data-stage="1" aria-label="Illustrated drive. Press to erase, press again to reset."></button>
+<p class="vt cap">Drive A: <span id="hs">Full</span></p>
+<p class="vt cap">Press the drive. Illustration, not to scale.</p>
+</div>
+</div></section>
+<section><div class="in">
+<p class="lead">Renovare collects donated laptops and computers around Cambridge, wipes and repairs them, and passes them to local groups who work with people who need a device. Each one leaves with a tested charger and a plain guide.</p>
+<div class="btns"><a class="btn solid" href="donate.html">Donate a device</a><a class="btn" href="#process">How it works</a></div>
+<div class="pair"><div class="frame">Photo: a laptop on a kitchen table, before</div><div class="frame">Photo: the same laptop, cleaned and running</div></div>
+</div></section>
+<section id="process"><div class="in">
+<h2>Four stages.</h2>
+<div class="proc">
+<div class="rig">
+<p class="vt">Drive A: <span id="ps">Full</span></p>
+<div class="drive" id="d2" data-stage="1" aria-hidden="true"></div>
+<p class="vt cap">Illustration, not to scale. Stage <span id="pn">01</span> of 04.</p>
+</div>
+<div class="stages">
+<article class="stg" data-n="1"><p class="n">01</p><h3>Collect</h3><p>Drop-off or collection within Cambridge and the surrounding area. We take laptops and desktops, working or not, plus spare memory, drives, working monitors and genuine chargers.</p><p>Drop-off and collection arrangements are made by email.</p></article>
+<article class="stg" data-n="2"><p class="n">02</p><h3>Wipe</h3><p>Every drive is fully erased, whatever state the device is in. The erasure is recorded for each device.</p><p>Remove personal accounts first if you can. We erase the drive either way.</p></article>
+<article class="stg" data-n="3"><p class="n">03</p><h3>Restore</h3><p>Faults are repaired where that is practical, and a free Linux system is installed. Chargers are tested.</p><p>Some devices get more memory or a faster SSD where that makes a real difference. What gets fixed depends on the device, and we do not promise a repair.</p></article>
+<article class="stg" data-n="4"><p class="n">04</p><h3>Pass on</h3><p>Devices go to local groups who already work with people who need them: community groups, support services and family projects. They are given, not sold.</p><p>Each one leaves with a tested charger and a plain-English guide.</p></article>
+</div>
+</div>
+</div></section>
+<section class="band"><div class="in"><h2>Have something gathering dust?</h2><a class="btn" href="donate.html">Donate a device</a></div></section>
+</main>
+<footer><span>© 2026 Renovare. A volunteer community project.</span><a href="contact.html">Contact</a></footer>
+<script>
+const N=240, STATUS={1:'Full',2:'Erasing',3:'Linux installed',4:'Passed on'};
+function build(el){
+  for(let i=0;i<N;i++){
+    const c=document.createElement('i');
+    c.className='c'+(i>=N-20?' os':'');
+    c.style.transitionDelay=(i*3)+'ms';
+    el.appendChild(c);
+  }
+}
+const d1=document.getElementById('d1'), d2=document.getElementById('d2');
+build(d1); build(d2);
+const hs=document.getElementById('hs'), ps=document.getElementById('ps'), pn=document.getElementById('pn');
+d1.addEventListener('click',()=>{
+  const n=d1.dataset.stage==='1'?2:1;
+  d1.dataset.stage=n;
+  hs.textContent=n===2?'Erased':'Full';
+});
+function setStage(n){
+  d2.dataset.stage=n;
+  ps.textContent=STATUS[n];
+  pn.textContent=String(n).padStart(2,'0');
+}
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting)setStage(Number(e.target.dataset.n))});
+},{rootMargin:'-45% 0px -45% 0px'});
+document.querySelectorAll('.stg').forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
