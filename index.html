@@ -1,123 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Renovare | Old laptops in, working laptops out</title>
-  <meta name="description" content="Renovare refurbishes donated laptops and computers in Cambridge and passes them to people who have less access to technology.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Renovare</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="site">
-  <div class="wrap">
-    <a href="index.html" class="logo"><i></i>Renovare</a>
-    <nav>
-      <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+<header>
+<a class="mark" href="index.html"><i></i>Renovare</a>
+<nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="donate.html">Donate</a><a href="contact.html">Contact</a></nav>
 </header>
-
 <main>
-  <div class="hero">
-    <div class="wrap">
-      <span class="kicker">Cambridge and surrounding area</span>
-      <h1 class="display">Old laptops in.<br>Working laptops out.</h1>
-      <p class="lead">We take laptops and computers that have stopped working, repair and upgrade them, and pass them to people who have less access to technology than most of us do. Every device is wiped, tested and sent out with a charger and a simple guide.</p>
-      <div class="btn-row">
-        <a href="donate.html" class="btn">Donate a device</a>
-        <a href="about.html" class="btn line">How it works</a>
-      </div>
-      <div class="photo-row">
-        <div class="photo-slot">Photo: laptop before restoration</div>
-        <div class="photo-slot">Photo: laptop ready to go</div>
-      </div>
-    </div>
-  </div>
-
-  <section class="block">
-    <div class="wrap pad">
-      <span class="kicker">The process</span>
-      <h2 class="display">Four stages. Nothing hidden.</h2>
-      <div class="process-grid">
-        <div class="steps">
-          <div class="step" data-stage="1">
-            <span class="step-n">01</span>
-            <h3>Collect</h3>
-            <p>We take working and broken laptops and computers from households, schools and local businesses. Collection can be arranged for larger amounts.</p>
-            <p>Each device is logged on arrival, with its make, model and condition noted, so we know what we have before we start.</p>
-          </div>
-          <div class="step" data-stage="2">
-            <span class="step-n">02</span>
-            <h3>Wipe</h3>
-            <p>Every drive is securely erased before anything else happens. We never open, copy or keep anyone's files.</p>
-            <p>The erasure is recorded in our log against the device, so there's a clear trail for every machine.</p>
-          </div>
-          <div class="step" data-stage="3">
-            <span class="step-n">03</span>
-            <h3>Restore</h3>
-            <p>Devices are cleaned and tested. Where it makes a real difference, we upgrade them with more memory or a faster drive.</p>
-            <p>Each one gets a free Linux system, which runs well on older hardware, and is checked to boot properly.</p>
-          </div>
-          <div class="step" data-stage="4">
-            <span class="step-n">04</span>
-            <h3>Pass on</h3>
-            <p>Devices go to local groups who already work with people who need them, such as community groups, support services and family projects.</p>
-            <p>Each one leaves with a charger, a plain-English guide and a contact for help if something goes wrong.</p>
-          </div>
-        </div>
-        <div class="stage-panel" aria-label="Animation area">
-          <span class="tag">Animation</span>
-          <div>
-            <p class="stage-label" id="stage-label">Stage 01</p>
-            <p class="stage-note">Animation placeholder. The sequence for each stage will appear here.</p>
-          </div>
-          <span class="tag">Scroll the steps to follow along</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap">
-      <h2 class="display">Have something gathering dust?</h2>
-      <div class="btn-row" style="margin-top:24px">
-        <a href="donate.html" class="btn" style="background:var(--ink);color:var(--paper)">Find out how to donate</a>
-      </div>
-    </div>
-  </section>
+<section class="hero" id="hero">
+<div class="in">
+<h1><span class="l1">Old laptops in.</span><span class="l2">Working laptops out.</span></h1>
+<div class="side">
+<button class="switch" id="switch" aria-pressed="false" aria-label="Switch on"><span class="led"></span><span>Power</span></button>
+<p class="hint" id="hint">Press to switch on.</p>
+</div>
+</div>
+</section>
+<section>
+<div class="in">
+<p class="lead">Renovare collects donated laptops and computers around Cambridge, wipes and repairs them, and passes them to local groups who work with people who need a device. Each one leaves with a tested charger and a plain guide.</p>
+<div class="btns"><a class="btn solid" href="donate.html">Donate a device</a><a class="btn" href="#process">How it works</a></div>
+<div class="pair"><div class="frame">Photo: a laptop on a kitchen table, before</div><div class="frame">Photo: the same laptop, cleaned and running</div></div>
+</div>
+</section>
+<section id="process"><div class="in"><h2>Four stages, in order</h2></div></section>
+<section class="st s1">
+<div><p class="n">01</p><h3>Collect</h3><p>Drop-off or collection within Cambridge and the surrounding area. We take laptops and desktops, working or not, plus spare memory, drives, working monitors and genuine chargers.</p><p>Drop-off and collection arrangements are made by email.</p></div>
+<div class="frame">Animation, stage 01: to come</div>
+</section>
+<section class="st s2">
+<div><p class="n">02</p><h3>Wipe</h3><p>Every drive is fully erased, whatever state the device is in. The erasure is recorded for each device.</p><p>Remove personal accounts first if you can. We erase the drive either way.</p></div>
+<div class="frame">Animation, stage 02: to come</div>
+</section>
+<section class="st s3">
+<div><p class="n">03</p><h3>Restore</h3><p>Faults are repaired where that is practical, and a free Linux system is installed. Chargers are tested.</p><p>Some devices get more memory or a faster SSD where that makes a real difference. What gets fixed depends on the device, and we do not promise a repair.</p></div>
+<div class="frame">Animation, stage 03: to come</div>
+</section>
+<section class="st s4">
+<div><p class="n">04</p><h3>Pass on</h3><p>Devices go to local groups who already work with people who need them: community groups, support services and family projects. They are given, not sold.</p><p>Each one leaves with a tested charger and a plain-English guide.</p></div>
+<div class="frame">Animation, stage 04: to come</div>
+</section>
+<section class="band">
+<div class="in"><h2>Have something gathering dust?</h2><a class="btn solid" href="donate.html">Donate a device</a></div>
+</section>
 </main>
-
-<footer class="site">
-  <div class="wrap">
-    <span>&copy; 2026 Renovare. A volunteer community project.</span>
-    <a href="contact.html">Contact</a>
-  </div>
-</footer>
-
+<footer><span>© 2026 Renovare. A volunteer community project.</span><a href="contact.html">Contact</a></footer>
 <script>
-(function () {
-  const steps = document.querySelectorAll(".step");
-  const label = document.getElementById("stage-label");
-  const names = { 1: "Stage 01", 2: "Stage 02", 3: "Stage 03", 4: "Stage 04" };
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        steps.forEach((s) => s.classList.remove("active"));
-        e.target.classList.add("active");
-        label.textContent = names[e.target.dataset.stage];
-      }
-    });
-  }, { rootMargin: "-40% 0px -40% 0px" });
-  steps.forEach((s) => io.observe(s));
-})();
+const hero=document.getElementById('hero');
+const sw=document.getElementById('switch');
+const hint=document.getElementById('hint');
+sw.addEventListener('click',()=>{
+  const on=hero.classList.toggle('on');
+  sw.setAttribute('aria-pressed',String(on));
+  sw.setAttribute('aria-label',on?'Switch off':'Switch on');
+  hint.textContent=on?'Powered on.':'Press to switch on.';
+});
 </script>
 </body>
 </html>

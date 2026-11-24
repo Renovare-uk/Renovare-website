@@ -1,56 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact | Renovare</title>
-  <meta name="description" content="Contact Renovare about donations, collections or receiving devices.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Renovare | Contact</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="site">
-  <div class="wrap">
-    <a href="index.html" class="logo"><i></i>Renovare</a>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+<header>
+<a class="mark" href="index.html"><i></i>Renovare</a>
+<nav aria-label="Main"><a href="index.html">Home</a><a href="about.html">About</a><a href="donate.html">Donate</a><a href="contact.html" aria-current="page">Contact</a></nav>
 </header>
-
 <main>
-  <section class="block">
-    <div class="wrap pad two">
-      <div>
-        <span class="kicker">Contact</span>
-        <h1 class="display" style="font-size:clamp(56px,9vw,120px)">Say hello</h1>
-        <p class="lead">Questions about donating, collections or receiving devices? Email us and an adult volunteer will reply.</p>
-        <p style="margin-top:34px"><strong>Email</strong><br><a href="mailto:renovare.computers@gmail.com">renovare.computers@gmail.com</a></p>
-        <p style="margin-top:20px"><strong>Area</strong><br>Cambridge and surrounding area</p>
-        <p class="muted" style="margin-top:20px">We usually reply within a few working days.</p>
-      </div>
-      <form class="contact" action="mailto:renovare.computers@gmail.com" method="post" enctype="text/plain">
-        <label>Name <input type="text" name="name" required></label>
-        <label>Email <input type="email" name="email" required></label>
-        <label>Message <textarea name="message" required></textarea></label>
-        <button class="btn" type="submit">Send message</button>
-      </form>
-    </div>
-  </section>
+<section><div class="in">
+<h1>Say hello.</h1>
+<a class="big" href="mailto:renovare.computers@gmail.com">renovare.computers@gmail.com</a>
+<p>We cover Cambridge and the surrounding area.</p>
+</div></section>
+<section><div class="in">
+<form class="form" action="mailto:renovare.computers@gmail.com" method="post" enctype="text/plain">
+<label for="name">Name</label>
+<input id="name" name="name" type="text" required>
+<label for="email">Email</label>
+<input id="email" name="email" type="email" required>
+<label for="message">Message</label>
+<textarea id="message" name="message" required></textarea>
+<button class="btn solid" type="submit">Send</button>
+</form>
+</div></section>
 </main>
-
-<footer class="site">
-  <div class="wrap">
-    <span>&copy; 2026 Renovare. A volunteer community project.</span>
-    <a href="contact.html">Contact</a>
-  </div>
-</footer>
+<footer><span>© 2026 Renovare. A volunteer community project.</span><a href="contact.html">Contact</a></footer>
 </body>
 </html>
