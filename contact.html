@@ -4,7 +4,96 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Renovare | Contact</title>
-<link rel="stylesheet" href="css/style.css">
+<style>
+:root{--ink:#111;--paper:#fff;--or:#FF5A0A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font:400 16px/1.6 "Space Mono",ui-monospace,monospace;color:var(--ink);background:var(--paper)}
+body{min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+h1,h2,h3,dt{font-family:"Archivo Black",sans-serif;font-weight:400;line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(2.8rem,6.2vw,6.5rem)}
+h2{font-size:clamp(2.4rem,6vw,5.5rem);margin-bottom:1.2rem}
+h3{font-size:1.5rem;letter-spacing:0;margin-bottom:.6rem}
+p{max-width:60ch;margin-bottom:1rem}
+.vt{font-family:"VT323",monospace;font-size:1.45rem;line-height:1.05;text-transform:uppercase;letter-spacing:.03em}
+.cap{font-size:1.2rem;margin:.6rem 0 0}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.2rem;border-bottom:3px solid var(--ink)}
+.mark{display:flex;align-items:center;gap:.6rem;font:400 1.4rem/1 "Archivo Black",sans-serif;text-decoration:none}
+.mark i{width:.7em;height:.7em;background:var(--or)}
+nav{display:flex;flex-wrap:wrap;gap:1rem;text-transform:uppercase;font-size:.9rem;font-weight:700}
+nav a{text-decoration:none;padding:.15rem .4rem}
+nav a:hover{text-decoration:underline;text-decoration-thickness:3px}
+nav a[aria-current=page]{background:var(--ink);color:var(--paper)}
+main{flex:1}
+section{border-bottom:3px solid var(--ink)}
+.in{max-width:1280px;margin:0 auto;padding:4rem 1.2rem}
+/* the drive: a grid of cells, orange = data, hollow = erased */
+.drive{display:grid;grid-template-columns:repeat(20,1fr);gap:4px;width:100%;transition:outline-color .3s}
+.c{aspect-ratio:1;background:var(--or);box-shadow:inset 0 0 0 2px var(--or);transition:background .22s}
+.drive[data-stage="2"] .c,.drive[data-stage="3"] .c,.drive[data-stage="4"] .c{background:transparent}
+.drive[data-stage="3"] .os,.drive[data-stage="4"] .os{background:var(--or)}
+.drive[data-stage="4"]{outline:3px solid var(--or);outline-offset:10px}
+/* hero */
+.hero{background:var(--ink);color:var(--paper)}
+.hgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center}
+.hero h1 span{display:block}
+.hero .l2{color:var(--or)}
+.hero .drive{cursor:pointer}
+.hero .drive:focus-visible{outline:3px solid var(--or);outline-offset:8px}
+.lead{font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.35;max-width:36ch}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.btn{display:inline-block;padding:1rem 1.4rem;border:3px solid currentColor;font:700 1rem "Space Mono",monospace;text-transform:uppercase;text-decoration:none;color:inherit}
+.btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.solid{background:var(--or);border-color:var(--or);color:var(--ink)}
+.btn.solid:hover{background:var(--ink);border-color:var(--ink);color:var(--or)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+.frame{border:3px dashed currentColor;aspect-ratio:4/3;display:flex;align-items:flex-end;padding:.8rem;font-size:.8rem;text-transform:uppercase;font-weight:700}
+/* process */
+.proc{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.rig{position:sticky;top:2rem}
+.rig .drive{margin:2rem 0 0;padding:0}
+.stg{min-height:70vh;padding:3rem 0;border-top:3px solid var(--ink);display:flex;flex-direction:column;justify-content:center}
+.stg:first-child{border-top:0;padding-top:0}
+.n{font-family:"Archivo Black",sans-serif;font-size:clamp(5rem,14vw,12rem);line-height:.8;margin-bottom:1rem}
+.stg[data-n="3"]{border-top:0}
+.band{background:var(--or)}
+.band .in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:2rem}
+.band h2{margin:0}
+.spec{border-top:3px solid var(--ink)}
+.spec>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1.5rem;padding:1.6rem 0;border-bottom:3px solid var(--ink)}
+dt{font-size:1.15rem;text-transform:uppercase}
+dd{max-width:60ch}
+.orb{background:var(--or)}
+.yn{display:grid;grid-template-columns:1fr 1fr;border-bottom:3px solid var(--ink)}
+.yn>div{padding:3rem 1.5rem}
+.yn>div+div{background:var(--ink);color:var(--paper)}
+.yn ul{list-style:none}
+.yn li{padding:.8rem 0;border-bottom:2px solid currentColor}
+.yes li::before{content:"✓  ";font-weight:700}
+.no li::before{content:"✕  ";font-weight:700;color:var(--or)}
+.big{display:inline-block;font-family:"Archivo Black",sans-serif;font-size:clamp(1.3rem,4vw,3rem);text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:.15em;word-break:break-all;margin:1.5rem 0}
+.form label{display:block;text-transform:uppercase;font-weight:700;font-size:.8rem;margin-top:1.6rem}
+input,textarea{width:100%;font:inherit;color:inherit;background:transparent;border:0;border-bottom:3px solid var(--ink);padding:.6rem 0;border-radius:0}
+textarea{min-height:8rem;resize:vertical}
+input:focus,textarea:focus{outline:none;border-bottom-color:var(--or)}
+.form .btn{margin-top:2.2rem}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding:1.2rem;background:var(--ink);color:var(--paper);font-size:.85rem}
+footer a{color:var(--or)}
+@media (max-width:860px){.hgrid,.proc,.pair,.yn,.spec>div{grid-template-columns:1fr}.rig{position:static}.yn>div+div{border-top:3px solid var(--ink)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* laptop */
+.lap{width:100%;height:auto;display:block;overflow:visible}
+.hero .l1{margin-bottom:.12em}
+.hero .l2{margin-top:.04em}
+.lapbtn{display:block;width:100%}
+.lapbtn:focus-visible{outline:3px solid var(--or);outline-offset:8px}
+.spin{transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.procsec .in{padding-bottom:2rem}
+.procsec .proc{padding-top:1rem}
+.stg{min-height:80vh}
+
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">

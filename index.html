@@ -4,7 +4,96 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Renovare</title>
-<link rel="stylesheet" href="css/style.css">
+<style>
+:root{--ink:#111;--paper:#fff;--or:#FF5A0A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font:400 16px/1.6 "Space Mono",ui-monospace,monospace;color:var(--ink);background:var(--paper)}
+body{min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+h1,h2,h3,dt{font-family:"Archivo Black",sans-serif;font-weight:400;line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(2.8rem,6.2vw,6.5rem)}
+h2{font-size:clamp(2.4rem,6vw,5.5rem);margin-bottom:1.2rem}
+h3{font-size:1.5rem;letter-spacing:0;margin-bottom:.6rem}
+p{max-width:60ch;margin-bottom:1rem}
+.vt{font-family:"VT323",monospace;font-size:1.45rem;line-height:1.05;text-transform:uppercase;letter-spacing:.03em}
+.cap{font-size:1.2rem;margin:.6rem 0 0}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.2rem;border-bottom:3px solid var(--ink)}
+.mark{display:flex;align-items:center;gap:.6rem;font:400 1.4rem/1 "Archivo Black",sans-serif;text-decoration:none}
+.mark i{width:.7em;height:.7em;background:var(--or)}
+nav{display:flex;flex-wrap:wrap;gap:1rem;text-transform:uppercase;font-size:.9rem;font-weight:700}
+nav a{text-decoration:none;padding:.15rem .4rem}
+nav a:hover{text-decoration:underline;text-decoration-thickness:3px}
+nav a[aria-current=page]{background:var(--ink);color:var(--paper)}
+main{flex:1}
+section{border-bottom:3px solid var(--ink)}
+.in{max-width:1280px;margin:0 auto;padding:4rem 1.2rem}
+/* the drive: a grid of cells, orange = data, hollow = erased */
+.drive{display:grid;grid-template-columns:repeat(20,1fr);gap:4px;width:100%;transition:outline-color .3s}
+.c{aspect-ratio:1;background:var(--or);box-shadow:inset 0 0 0 2px var(--or);transition:background .22s}
+.drive[data-stage="2"] .c,.drive[data-stage="3"] .c,.drive[data-stage="4"] .c{background:transparent}
+.drive[data-stage="3"] .os,.drive[data-stage="4"] .os{background:var(--or)}
+.drive[data-stage="4"]{outline:3px solid var(--or);outline-offset:10px}
+/* hero */
+.hero{background:var(--ink);color:var(--paper)}
+.hgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center}
+.hero h1 span{display:block}
+.hero .l2{color:var(--or)}
+.hero .drive{cursor:pointer}
+.hero .drive:focus-visible{outline:3px solid var(--or);outline-offset:8px}
+.lead{font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.35;max-width:36ch}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.btn{display:inline-block;padding:1rem 1.4rem;border:3px solid currentColor;font:700 1rem "Space Mono",monospace;text-transform:uppercase;text-decoration:none;color:inherit}
+.btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.solid{background:var(--or);border-color:var(--or);color:var(--ink)}
+.btn.solid:hover{background:var(--ink);border-color:var(--ink);color:var(--or)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+.frame{border:3px dashed currentColor;aspect-ratio:4/3;display:flex;align-items:flex-end;padding:.8rem;font-size:.8rem;text-transform:uppercase;font-weight:700}
+/* process */
+.proc{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.rig{position:sticky;top:2rem}
+.rig .drive{margin:2rem 0 0;padding:0}
+.stg{min-height:70vh;padding:3rem 0;border-top:3px solid var(--ink);display:flex;flex-direction:column;justify-content:center}
+.stg:first-child{border-top:0;padding-top:0}
+.n{font-family:"Archivo Black",sans-serif;font-size:clamp(5rem,14vw,12rem);line-height:.8;margin-bottom:1rem}
+.stg[data-n="3"]{border-top:0}
+.band{background:var(--or)}
+.band .in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:2rem}
+.band h2{margin:0}
+.spec{border-top:3px solid var(--ink)}
+.spec>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1.5rem;padding:1.6rem 0;border-bottom:3px solid var(--ink)}
+dt{font-size:1.15rem;text-transform:uppercase}
+dd{max-width:60ch}
+.orb{background:var(--or)}
+.yn{display:grid;grid-template-columns:1fr 1fr;border-bottom:3px solid var(--ink)}
+.yn>div{padding:3rem 1.5rem}
+.yn>div+div{background:var(--ink);color:var(--paper)}
+.yn ul{list-style:none}
+.yn li{padding:.8rem 0;border-bottom:2px solid currentColor}
+.yes li::before{content:"✓  ";font-weight:700}
+.no li::before{content:"✕  ";font-weight:700;color:var(--or)}
+.big{display:inline-block;font-family:"Archivo Black",sans-serif;font-size:clamp(1.3rem,4vw,3rem);text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:.15em;word-break:break-all;margin:1.5rem 0}
+.form label{display:block;text-transform:uppercase;font-weight:700;font-size:.8rem;margin-top:1.6rem}
+input,textarea{width:100%;font:inherit;color:inherit;background:transparent;border:0;border-bottom:3px solid var(--ink);padding:.6rem 0;border-radius:0}
+textarea{min-height:8rem;resize:vertical}
+input:focus,textarea:focus{outline:none;border-bottom-color:var(--or)}
+.form .btn{margin-top:2.2rem}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding:1.2rem;background:var(--ink);color:var(--paper);font-size:.85rem}
+footer a{color:var(--or)}
+@media (max-width:860px){.hgrid,.proc,.pair,.yn,.spec>div{grid-template-columns:1fr}.rig{position:static}.yn>div+div{border-top:3px solid var(--ink)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* laptop */
+.lap{width:100%;height:auto;display:block;overflow:visible}
+.hero .l1{margin-bottom:.12em}
+.hero .l2{margin-top:.04em}
+.lapbtn{display:block;width:100%}
+.lapbtn:focus-visible{outline:3px solid var(--or);outline-offset:8px}
+.spin{transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.procsec .in{padding-bottom:2rem}
+.procsec .proc{padding-top:1rem}
+.stg{min-height:80vh}
+
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
@@ -18,9 +107,9 @@
 <section class="hero"><div class="in hgrid">
 <h1><span class="l1">Old laptops in.</span><span class="l2">Working laptops out.</span></h1>
 <div>
-<button class="drive" id="d1" data-stage="1" aria-label="Illustrated drive. Press to erase, press again to reset."></button>
-<p class="vt cap">Drive A: <span id="hs">Full</span></p>
-<p class="vt cap">Press the drive. Illustration, not to scale.</p>
+<div class="spin" id="heroWrap"><button class="lapbtn" id="heroBtn" aria-label="Laptop A. Press to spin and clean."><div id="heroLap"></div></button></div>
+<p class="vt cap" id="hs">Laptop A: scuffed</p>
+<p class="vt cap">Press the laptop. Illustration, not to scale.</p>
 </div>
 </div></section>
 <section><div class="in">
@@ -28,19 +117,18 @@
 <div class="btns"><a class="btn solid" href="donate.html">Donate a device</a><a class="btn" href="#process">How it works</a></div>
 <div class="pair"><div class="frame">Photo: a laptop on a kitchen table, before</div><div class="frame">Photo: the same laptop, cleaned and running</div></div>
 </div></section>
-<section id="process"><div class="in">
+<section class="procsec" id="proc"><div class="in">
 <h2>Four stages.</h2>
 <div class="proc">
 <div class="rig">
-<p class="vt">Drive A: <span id="ps">Full</span></p>
-<div class="drive" id="d2" data-stage="1" aria-hidden="true"></div>
-<p class="vt cap">Illustration, not to scale. Stage <span id="pn">01</span> of 04.</p>
+<div id="procLap"></div>
+<p class="vt cap">Laptop A: <span id="ps">Scuffed</span>. Illustration, not to scale.</p>
 </div>
 <div class="stages">
-<article class="stg" data-n="1"><p class="n">01</p><h3>Collect</h3><p>Drop-off or collection within Cambridge and the surrounding area. We take laptops and desktops, working or not, plus spare memory, drives, working monitors and genuine chargers.</p><p>Drop-off and collection arrangements are made by email.</p></article>
-<article class="stg" data-n="2"><p class="n">02</p><h3>Wipe</h3><p>Every drive is fully erased, whatever state the device is in. The erasure is recorded for each device.</p><p>Remove personal accounts first if you can. We erase the drive either way.</p></article>
-<article class="stg" data-n="3"><p class="n">03</p><h3>Restore</h3><p>Faults are repaired where that is practical, and a free Linux system is installed. Chargers are tested.</p><p>Some devices get more memory or a faster SSD where that makes a real difference. What gets fixed depends on the device, and we do not promise a repair.</p></article>
-<article class="stg" data-n="4"><p class="n">04</p><h3>Pass on</h3><p>Devices go to local groups who already work with people who need them: community groups, support services and family projects. They are given, not sold.</p><p>Each one leaves with a tested charger and a plain-English guide.</p></article>
+<article class="stg" data-n="1" data-s="Scuffed"><p class="n">01</p><h3>Collect</h3><p>Drop-off or collection within Cambridge and the surrounding area. We take laptops and desktops, working or not, plus spare memory, drives, working monitors and genuine chargers.</p><p>Drop-off and collection arrangements are made by email.</p></article>
+<article class="stg" data-n="2" data-s="Opened"><p class="n">02</p><h3>Wipe</h3><p>The laptop is opened and every drive is fully erased, whatever state the device is in. The erasure is recorded for each device.</p><p>Remove personal accounts first if you can. We erase the drive either way.</p></article>
+<article class="stg" data-n="3" data-s="Screws in"><p class="n">03</p><h3>Restore</h3><p>Faults are repaired where that is practical, and a free Linux system is installed. Chargers are tested.</p><p>Some devices get more memory or a faster SSD where that makes a real difference. What gets fixed depends on the device, and we do not promise a repair.</p></article>
+<article class="stg" data-n="4" data-s="Clean"><p class="n">04</p><h3>Pass on</h3><p>Devices go to local groups who already work with people who need them: community groups, support services and family projects. They are given, not sold.</p><p>Each one leaves with a tested charger and a plain-English guide.</p></article>
 </div>
 </div>
 </div></section>
@@ -48,32 +136,63 @@
 </main>
 <footer><span>© 2026 Renovare. A volunteer community project.</span><a href="contact.html">Contact</a></footer>
 <script>
-const N=240, STATUS={1:'Full',2:'Erasing',3:'Linux installed',4:'Passed on'};
-function build(el){
-  for(let i=0;i<N;i++){
-    const c=document.createElement('i');
-    c.className='c'+(i>=N-20?' os':'');
-    c.style.transitionDelay=(i*3)+'ms';
-    el.appendChild(c);
-  }
+const LAPTOP=`<svg viewBox="0 0 600 420" class="lap" role="img" aria-label="Laptop">
+<g class="base">
+<rect x="40" y="20" width="520" height="340" fill="#1d1d1d"/>
+<rect class="hdd" x="90" y="110" width="170" height="110" fill="#D7261E"/>
+<rect class="ssd" x="330" y="120" width="190" height="46" fill="#2BBE5A" opacity="0"/>
+<g class="screws" opacity="0" fill="#cfcfcf"><circle cx="70" cy="40" r="9"/><circle cx="530" cy="40" r="9"/><circle cx="70" cy="340" r="9"/><circle cx="530" cy="340" r="9"/><circle cx="300" cy="200" r="9"/></g>
+</g>
+<g class="lid" style="transform-origin:300px 360px">
+<rect class="lidC" x="40" y="20" width="520" height="340" fill="#fff" stroke="#111" stroke-width="6"/>
+<rect x="270" y="165" width="60" height="60" fill="#FF5A0A"/>
+<rect class="lidS" x="40" y="20" width="520" height="340" fill="#9b9b9b" stroke="#111" stroke-width="6"/>
+<g class="junk">
+<rect x="70" y="50" width="90" height="46" fill="#FF5A0A" transform="rotate(-8 115 73)"/>
+<rect x="390" y="230" width="110" height="36" fill="#111" transform="rotate(6 445 248)"/>
+<rect x="330" y="60" width="60" height="60" fill="#fff" stroke="#111" stroke-width="4" transform="rotate(12 360 90)"/>
+<path d="M120 300 L210 280 M300 130 L360 150 M80 180 L130 160 M440 80 L500 100" stroke="#111" stroke-width="3" fill="none"/>
+</g>
+</g>
+</svg>`;
+const c=v=>Math.min(1,Math.max(0,v));
+function apply(el,p){
+  const m=(a,b)=>c((p-a)/(b-a));
+  const open=m(.2,.4)-m(.7,.85);
+  el.querySelector('.lid').style.transform=`scaleY(${1-open})`;
+  el.querySelector('.hdd').style.opacity=1-m(.4,.5);
+  el.querySelector('.ssd').style.opacity=m(.5,.6);
+  el.querySelector('.screws').style.opacity=m(.6,.65);
+  const clean=m(.85,.95);
+  el.querySelector('.lidS').style.opacity=1-clean;
+  
+  el.querySelector('.junk').style.opacity=1-clean;
 }
-const d1=document.getElementById('d1'), d2=document.getElementById('d2');
-build(d1); build(d2);
-const hs=document.getElementById('hs'), ps=document.getElementById('ps'), pn=document.getElementById('pn');
-d1.addEventListener('click',()=>{
-  const n=d1.dataset.stage==='1'?2:1;
-  d1.dataset.stage=n;
-  hs.textContent=n===2?'Erased':'Full';
+const heroLap=document.getElementById('heroLap'), procLap=document.getElementById('procLap');
+heroLap.innerHTML=LAPTOP; procLap.innerHTML=LAPTOP;
+const heroEl=heroLap.querySelector('svg'), procEl=procLap.querySelector('svg');
+apply(heroEl,0); apply(procEl,0);
+
+const heroWrap=document.getElementById('heroWrap'), hs=document.getElementById('hs');
+let angle=0, cleaned=false;
+document.getElementById('heroBtn').addEventListener('click',()=>{
+  cleaned=!cleaned;
+  angle+=360;
+  heroWrap.style.transform=`rotate(${angle}deg)`;
+  apply(heroEl,cleaned?1:0);
+  hs.textContent=cleaned?'Laptop A: clean':'Laptop A: scuffed';
 });
-function setStage(n){
-  d2.dataset.stage=n;
-  ps.textContent=STATUS[n];
-  pn.textContent=String(n).padStart(2,'0');
+
+const sec=document.getElementById('proc'), ps=document.getElementById('ps');
+const label=p=>p<.3?'Scuffed':p<.55?'Opened':p<.85?'Screws in':'Clean';
+function scrollP(){
+  const r=sec.getBoundingClientRect();
+  const total=sec.offsetHeight-innerHeight;
+  return c(-r.top/total);
 }
-const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{if(e.isIntersecting)setStage(Number(e.target.dataset.n))});
-},{rootMargin:'-45% 0px -45% 0px'});
-document.querySelectorAll('.stg').forEach(s=>io.observe(s));
+function onScroll(){const p=scrollP();apply(procEl,p);ps.textContent=label(p);}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
 </script>
 </body>
 </html>
